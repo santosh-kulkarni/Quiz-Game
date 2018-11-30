@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+{% load staticfiles %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <title>Question - {{num}}</title>
+</head>
+<body style="padding-top: 5%; padding-bottom: 50px;">
+    <h1 class="text-center">Question {{num}}</h1>
+    <div style=" padding: 1% 5% 5% 5%; position: absolute;  left: 20%; width:60%; background-color: #f7f7f7; box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);">
+       <form method="post" action="/quiz/show-question/">
+           <h2>{{Total_List.question}}</h2>
+           <div class="radio">
+               {% for opt in Total_List.options %}
+                    <h3><label><input type="radio" value="{{ opt }}" name="optradio" required>{{opt}}</label></h3>
+               {% endfor %}
+           </div>
+           <button type="submit" value="{{Total_List.answer}}" name="button" class="btn btn-info" style="float: right;">Continue</button>
+       </form>
+    </div>
+</body>
+</html>

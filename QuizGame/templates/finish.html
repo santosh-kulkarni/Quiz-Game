@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+{% load staticfiles %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <title>Status Report</title>
+</head>
+<body style="padding-left: 5%; padding-right: 5%;">
+    <h1 class="text-center">{{Message}}</h1>
+    <center><img style="width:30%; height: 30%" src="/static/abcd.jpg" alt="Picture of Right Mark" /></center>
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th>Question</th>
+                <th>Your Answer</th>
+                <th>Correct Answer</th>
+                <th>Status</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for val in details %}
+                {% if val.status %}
+                    <tr class="success">
+                {% else %}
+                    <tr class="danger">
+                {% endif %}
+                    <td>{{ val.question }}</td>
+                    <td>{{ val.your_answer }}</td>
+                    <td>{{ val.answer }}</td>
+                    <td>{{ val.status }}</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    <h2 class="text-center">You Have Solved {{Correct_Ans}}/{{Total_Q}} Questions Correctly</h2>
+    <h2 class="text-center">Accuracy : {{total_correct}}%</h2>
+    <form method="post" action="/quiz/" >
+        <center><button class="btn btn-info btn-lg">Play Again</button></center>
+    </form>
+</body>
+</html>

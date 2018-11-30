@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+{% load staticfiles %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <title>Select Options</title>
+</head>
+<body style="padding-top: 5%;">
+    <!--<h2 class="text-center">{{Message}}</h2>-->
+    <div style=" padding: 1% 5% 5% 5%; position: absolute;  left: 25%; width:50%; background-color: #f7f7f7; box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);">
+        <h2 class="text-center">Choose Options to Play Game</h2>
+        <form method="post" action="/quiz/show-question/">
+            <div class="form-group">
+                <label for="number">Number Of Questions</label>
+                <input type="number" maxlength="2" name="number" class="form-control" id="number" required>
+            </div>
+            <div class="form-group">
+                <label for="cat">Select Category</label>
+                <select class="form-control" id="cat" name="cat" required>
+                    <option>Select Category..</option>
+                    <option>General Knowledge</option>
+                    <option>Sports</option>
+                    <option>Politics</option>
+                    <option>Science : Computer</option>
+                    <option>History</option>
+                    <option>Science : Mathematics</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="level">Difficulty Level</label>
+                <select class="form-control" id="level" name="level" required>
+                    <option>Difficulty Level...</option>
+                    <option>Easy</option>
+                    <option>Medium</option>
+                    <option>Hard</option>
+                </select>
+            </div>
+            <button class="btn btn-info">Play Quiz</button>
+        </form>
+    </div>
+</body>
+</html>
